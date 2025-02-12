@@ -1,20 +1,24 @@
 // The compress() function
 function compress(string) {
-  let result = "";
+  let resultObj = {};
   if (!(typeof string === "string")) {
     throw new Error("Input must be a string");
   }
 
-  for (let i = 0; i < string.length; i++) {
-    if (string[i] === string[i + 1]) {
-      debugger;
-      result += string[i];
+  for (let index = 0; index < string.length; index++) {
+    const char = string[index]
+    if(resultObj[char]) {
+        resultObj[char]++
     }
+
+    resultObj[char]++
   }
+
+  return resultObj;
 }
 
 // The decompress() function
 function decompress(string) {}
 
-let testString = compress("AAABB")
+let testString = compress("AAAAABBB")
 console.log(testString)
