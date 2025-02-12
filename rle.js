@@ -1,7 +1,7 @@
 // The compress() function
 function compress(string) {
   let result = "";
-  if (!typeof string === "string") {
+  if (!(typeof string === "string")) {
     throw new Error("Input must be a string");
   }
 
@@ -15,3 +15,5 @@ function compress(string) {
 
 // The decompress() function
 function decompress(string) {}
+
+compress(9)
