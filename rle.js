@@ -16,4 +16,5 @@ function compress(string) {
 // The decompress() function
 function decompress(string) {}
 
-compress(9)
+let testString = compress("AAABB")
+console.log(testString)
