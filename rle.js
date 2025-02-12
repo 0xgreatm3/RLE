@@ -26,5 +26,27 @@ function compress(string) {
 // The decompress() function
 function decompress(string) {}
 
-let testString = compress("AAAABBBBCCCCEEFFGHS");
-console.log(testString);
+// let testString = compress("AAAABBBBCCCCEEFFGHS");
+// console.log(testString);
+
+function consecutive(string) {
+  let result = "";
+  let count = 1;
+  for (let index = 0; index < string.length; index++) {
+    const char = string[index];
+    const nextChar = string[index + 1] || "";
+    if (char !== nextChar) {
+      debugger
+      result += String(count + char);
+      count = 1;
+    }
+    if (char === nextChar) {
+      debugger;
+      count++;
+      result += String(count + char);
+    }
+  }
+  return result;
+}
+
+console.log(consecutive("AAABBB"));
