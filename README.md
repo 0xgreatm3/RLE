@@ -14,5 +14,13 @@ A simple JavaScript implementation of the Run-Length Encoding (RLE) algorithm. T
 ## Contributing
 Feel free to fork this repository and make pull requests with improvements or bug fixes.
 
+## Future Improvements
+- **Number Compression** – Currently, only letters are compressed. Future versions will handle numbers properly.
+- **Symbol Handling** – Decide whether to compress special characters like `@`, `#`, `$`, `!`, or leave them unchanged.
+- **Case Sensitivity Option** – Add a setting to allow case-sensitive or case-insensitive compression.
+- **Performance Optimization** – Improve efficiency when handling large text inputs.
+- **Web UI** – Create a simple webpage for users to input text and see real-time compression results.
+- **File Compression** – Extend the project to support text file compression and decompression.
+
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
