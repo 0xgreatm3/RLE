@@ -18,9 +18,12 @@ function compress(string) {
         result += count + prevChar;
         count = 1;
       }
+      
+    } else {
+      result += ""
     }
   }
-  result += count + string[string.length - 1];
+  
   return result;
 }
 
@@ -42,6 +45,6 @@ function decompress(string) {
   return result;
 }
 
-let testString = compress("AAABBBCCCDDD");
+let testString = compress("AAABBBCCCDDD999GG");
 // console.log(decompress(testString)); // Output: "AAAbbbiiiiiiiiiiiiiiiiiiiiiiii
 console.log(testString);
