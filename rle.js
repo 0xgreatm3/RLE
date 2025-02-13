@@ -13,15 +13,14 @@ function compress(string) {
       (char.charCodeAt(0) >= 97 && char.charCodeAt(0) <= 122) // Lowercase a-z
     ) {
       if (char === prevChar) {
-        debugger;
         count++;
       } else {
-        debugger;
         result += count + prevChar;
         count = 1;
       }
     }
   }
+  result += count + string[string.length - 1];
   return result;
 }
 
@@ -43,6 +42,6 @@ function decompress(string) {
   return result;
 }
 
-let testString = compress("AAAAAbb");
+let testString = compress("AAABBBCCCDDD");
 // console.log(decompress(testString)); // Output: "AAAbbbiiiiiiiiiiiiiiiiiiiiiiii
 console.log(testString);
