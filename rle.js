@@ -30,23 +30,20 @@ function decompress(string) {}
 // console.log(testString);
 
 function consecutive(string) {
-  let result = "";
+  let result = [];
   let count = 1;
-  for (let index = 0; index < string.length; index++) {
+  for (let index = 1; index < string.length; index++) {
     const char = string[index];
-    const nextChar = string[index + 1] || "";
-    if (char !== nextChar) {
-      debugger
-      result += String(count + char);
+    const prevChar = string[index - 1];
+    if (char === prevChar) {
+      count++;
+    } else {
+      result.push(count);
       count = 1;
     }
-    if (char === nextChar) {
-      debugger;
-      count++;
-      result += String(count + char);
-    }
   }
+  result.push(count);
   return result;
 }
 
-console.log(consecutive("AAABBB"));
+console.log(consecutive("AAABBBBBAA"));
