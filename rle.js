@@ -43,6 +43,6 @@ function decompress(string) {
   return result;
 }
 
-let testString = compress("AAABBBCCCC");
+let testString = compress("AAAAAbb");
 // console.log(decompress(testString)); // Output: "AAAbbbiiiiiiiiiiiiiiiiiiiiiiii
 console.log(testString);
