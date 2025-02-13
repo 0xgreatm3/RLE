@@ -22,5 +22,10 @@ Feel free to fork this repository and make pull requests with improvements or bu
 - [ ]**Web UI** – Create a simple webpage for users to input text and see real-time compression results.
 - [ ]**File Compression** – Extend the project to support text file compression and decompression.
 
+Todo
+
+[ ]**Add a function to count the number of occurrences of each character in a string**
+[ ]**Implement a function to remove duplicate characters from a string**
+
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
