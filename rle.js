@@ -1,4 +1,3 @@
-// The compress() function
 function compress(string) {
   if (!(typeof string === "string")) {
     throw new Error("Input must be a string");
@@ -14,8 +13,10 @@ function compress(string) {
       (char.charCodeAt(0) >= 97 && char.charCodeAt(0) <= 122) // Lowercase a-z
     ) {
       if (char === prevChar) {
+        debugger;
         count++;
       } else {
+        debugger;
         result += count + prevChar;
         count = 1;
       }
@@ -24,8 +25,24 @@ function compress(string) {
   return result;
 }
 
-// The decompress() function
-function decompress(string) {}
+function decompress(string) {
+  if (!(typeof string === "string")) {
+    throw new Error("Input must be a string");
+  }
+  let result = "";
+  let count = "";
+  for (let index = 0; index < string.length; index++) {
+    const char = string[index];
+    if (char >= "0" && char <= "9") {
+      count += char;
+    } else {
+      result += char.repeat(parseInt(count));
+      count = "";
+    }
+  }
+  return result;
+}
 
-let testString = compress("AAAbbb909099");
+let testString = compress("AAABBBCCCC");
+// console.log(decompress(testString)); // Output: "AAAbbbiiiiiiiiiiiiiiiiiiiiiiii
 console.log(testString);
