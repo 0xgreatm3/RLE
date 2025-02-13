@@ -24,8 +24,9 @@ Feel free to fork this repository and make pull requests with improvements or bu
 
 Todo
 
-[ ]**Add a function to count the number of occurrences of each character in a string**
-[ ]**Implement a function to remove duplicate characters from a string**
+- [ ] incomplete task
+- [x] completed task
+
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
