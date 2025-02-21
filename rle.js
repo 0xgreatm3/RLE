@@ -8,7 +8,7 @@ function compress(stringParam) {
   }
 
   const regex = /[A-Za-z]/g;
-  const string = stringParam.match(regex).join("");
+  const string = (stringParam.match(regex) || []).join("");
 
   let result = "";
   let count = 1;
@@ -44,5 +44,5 @@ function decompress(string) {
   return result;
 }
 
-let testString = compress("AAAB   BBCCCDDD999GG");
+let testString = compress("343");
 console.log(testString);
