@@ -8,10 +8,7 @@ function compress(string) {
   for (let index = 1; index < string.length; index++) {
     const char = string[index];
     const prevChar = string[index - 1];
-    if (
-      (char.charCodeAt(0) >= 65 && char.charCodeAt(0) <= 90) || // Uppercase
-      (char.charCodeAt(0) >= 97 && char.charCodeAt(0) <= 122) // Lowercase a-z
-    ) {
+    if (char.match(/[a-zA-z]/g)) {
       if (char === prevChar) {
         count++;
       } else {
