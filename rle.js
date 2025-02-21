@@ -35,23 +35,5 @@ function compress(stringParam) {
   return result;
 }
 
-function decompress(string) {
-  if (!(typeof string === "string")) {
-    throw new Error("Input must be a string");
-  }
-  let result = "";
-  let count = "";
-  for (let index = 0; index < string.length; index++) {
-    const char = string[index];
-    if (char >= "0" && char <= "9") {
-      count += char;
-    } else {
-      result += char.repeat(parseInt(count));
-      count = "";
-    }
-  }
-  return result;
-}
-
 let testString = compress("343");
 console.log(testString);
