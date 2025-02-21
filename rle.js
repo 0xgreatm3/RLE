@@ -34,6 +34,4 @@ function compress(stringParam) {
 
   return result;
 }
-
-let testString = compress("aaaBb");
-console.log(testString);
+ 
