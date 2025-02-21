@@ -10,6 +10,14 @@ function compress(stringParam) {
   const regex = /[A-Za-z]/g;
   const string = (stringParam.match(regex) || []).join("");
 
+  if (string.length === 0) {
+    return "";
+  }
+
+  if (string.length === 1) {
+    return string + "1";
+  }
+
   let result = "";
   let count = 1;
   for (let index = 1; index < string.length; index++) {
