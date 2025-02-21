@@ -1,26 +1,25 @@
-function compress(string) {
-  if (!(typeof string === "string")) {
+function compress(stringParam) {
+  if (!(typeof stringParam === "string")) {
     throw new Error("Input must be a string");
   }
 
-  if (string.length === 0) {
+  if (stringParam.length === 0) {
     return "";
   }
+
+  const regex = /[A-Za-z]/g;
+  const string = stringParam.match(regex).join("");
 
   let result = "";
   let count = 1;
   for (let index = 1; index < string.length; index++) {
     const char = string[index];
     const prevChar = string[index - 1];
-    if (char.match(/[a-zA-Z]/g)) {
-      if (char === prevChar) {
-        count++;
-      } else {
-        result += prevChar + count;
-        count = 1;
-      }
+    if (char === prevChar) {
+      count++;
     } else {
-      continue;
+      result += prevChar + count;
+      count = 1;
     }
   }
   result += string[string.length - 1] + count;
@@ -45,5 +44,5 @@ function decompress(string) {
   return result;
 }
 
-let testString = compress("AAABBBCCCDDD999GG");
+let testString = compress("AAAB   BBCCCDDD999GG");
 console.log(testString);
