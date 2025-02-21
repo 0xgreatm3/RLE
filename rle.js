@@ -10,10 +10,12 @@ function compress(stringParam) {
   const regex = /[A-Za-z]/g;
   const string = (stringParam.match(regex) || []).join("");
 
+  // In case the string is empty after removing non-alphabetic characters
   if (string.length === 0) {
     return "";
   }
 
+  // In case the string has only one character
   if (string.length === 1) {
     return string + "1";
   }
