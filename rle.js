@@ -36,26 +36,26 @@ function compress(stringParam) {
 }
 
 function decompress(stringParam) {
-  if(typeof stringParam !== "string") {
-    throw new Error("Input must be a string")
+  if (typeof stringParam !== "string") {
+    throw new Error("Input must be a string");
   }
 
   if (stringParam.length === 0) return "";
-  
-  const isValidCompressed = (str) => /^([A-Za-z]\d+)+$/.test(str);
+
+  const isValidCompressed = (str) => /^([A-Za-z][1-9]\d*)+$/.test(str);
 
   const extractPairs = (str) => {
     if (!isValidCompressed(str)) {
       throw new Error("Invalid compressed string format");
     }
-    
+
     return [...str.matchAll(/([a-zA-Z])(\d+)/g)];
   };
 
-  const result = extractPairs(stringParam)
+  const result = extractPairs(stringParam);
 
-  return result.map(m => ({ letter: m[1], count: m[2]}))
+  return result.map((m) => ({ letter: m[1], count: m[2] }));
 }
 
-let test = decompress("A1Sg2s3")
-console.log(test)
+let test = decompress("A1S2s3");
+console.log(test);
