@@ -34,3 +34,7 @@ function compress(stringParam) {
 
   return result;
 }
+
+function decompress(stringParam) {
+  
+}
