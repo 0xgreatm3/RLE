@@ -50,3 +50,6 @@ function decompress(stringParam) {
 
   return result.map(m => ({ letter: m[1], count: m[2]}))
 }
+
+let test = decompress("A1Sg2s3")
+console.log(test)
