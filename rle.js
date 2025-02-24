@@ -41,10 +41,16 @@ function decompress(stringParam) {
   }
 
   if (stringParam.length === 0) return "";
+  
+  const isValidCompressed = (str) => /^([A-Za-z]\d+)+$/.test(str);
 
-  const regex = /([a-zA-Z])(\d+)/g
-
-  const extractPairs = (str) => [...str.matchAll(regex)]
+  const extractPairs = (str) => {
+    if (!isValidCompressed(str)) {
+      throw new Error("Invalid compressed string format");
+    }
+    
+    return [...str.matchAll(/([a-zA-Z])(\d+)/g)];
+  };
 
   const result = extractPairs(stringParam)
 
