@@ -1,5 +1,5 @@
 function compress(stringParam) {
-  if (!(typeof stringParam === "string")) {
+  if (typeof stringParam !== "string") {
     throw new Error("Input must be a string");
   }
 
@@ -36,5 +36,17 @@ function compress(stringParam) {
 }
 
 function decompress(stringParam) {
-  
+  if(typeof stringParam !== "string") {
+    throw new Error("Input must be a string")
+  }
+
+  if (stringParam.length === 0) return "";
+
+  const regex = /([a-zA-Z])(\d+)/g
+
+  const extractPairs = (str) => [...str.matchAll(regex)]
+
+  const result = extractPairs(stringParam)
+
+  return result.map(m => ({ letter: m[1], count: m[2]}))
 }
