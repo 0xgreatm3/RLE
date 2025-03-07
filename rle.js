@@ -55,8 +55,10 @@ function decompress(stringParam) {
   const result = extractPairs(stringParam);
 
   return result.map((m) => m[1].repeat(Number(m[2]))).join("");
- 
 }
 
-let test = decompress("A1S2s3A1");
-console.log(test);
+let compressedString = compress("ELEPHANT IS BIG");
+let decompressedString = decompress(compressedString);
+
+console.log(compressedString);
+console.log(decompressedString);
