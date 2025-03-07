@@ -54,8 +54,9 @@ function decompress(stringParam) {
 
   const result = extractPairs(stringParam);
 
-  return result.map((m) => ({ letter: m[1], count: m[2] }));
+  return result.map((m) => m[1].repeat(Number(m[2]))).join("");
+ 
 }
 
-let test = decompress("A1S2s3");
+let test = decompress("A1S2s3A1");
 console.log(test);
