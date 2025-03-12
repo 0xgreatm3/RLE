@@ -50,8 +50,8 @@ function decompress(stringParam) {
   return result.map((m) => m[1].repeat(Number(m[2]))).join("");
 }
 
-let compressedString = compress("ELEPHANT IS BIG");
-let decompressedString = decompress(compressedString);
+let compressedString = compress("AA111BB");
+// let decompressedString = decompress(compressedString);
 
 console.log(compressedString);
-console.log(decompressedString);
+// console.log(decompressedString);
