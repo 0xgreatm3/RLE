@@ -56,8 +56,8 @@ function decode(stringParam) {
   return result.map((m) => m[1].repeat(Number(m[2]))).join("");
 }
 
-let compressedString = compress("AA111BB2322ghdsGHGHGGGH3C24");
+let encodedString = encode("AA111BB2322ghdsGHGHGGGH3C24");
 // let decompressedString = decompress(compressedString);
 
-console.log(compressedString);
+console.log(encodedString);
 // console.log(decompressedString);
