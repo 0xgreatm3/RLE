@@ -1,32 +1,38 @@
 function compress(stringParam) {
-  if (typeof stringParam !== "string") {
-    throw new Error("Input must be a string");
-  }
-
+  if (typeof stringParam !== "string") throw new Error("Input must be a string");
   if (stringParam.length === 0) return "";
 
   let result = "";
-  let count = 1;
+  let i = 0;
 
-  for (let index = 1; index < stringParam.length; index++) {
-    const char = string[index];
-    const prevChar = string[index - 1];
-
-    if (char === prevChar) {
-      count++;
-    } else {
-      result += /\d/.test(prevChar) ? `[${prevChar}]` : prevChar + count;
-      count = 1;
+  while (i < stringParam.length) {
+    let char = stringParam[i];
+    
+    if (/\d/.test(char)) {  
+      // Handle numbers separately
+      let num = "";
+      while (i < stringParam.length && /\d/.test(stringParam[i])) {
+        num += stringParam[i];
+        i++;
+      }
+      result += `[${num}]`;
+      continue; // Move to next character without extra increment
     }
+
+    // Handle letters using RLE
+    let count = 1;
+    while (i + 1 < stringParam.length && stringParam[i + 1] === char) {
+      count++;
+      i++;
+    }
+
+    result += char + count;
+    i++;  // Move to next character
   }
 
-  // Add the last character and its count
-  result += /\d/.test(stringParam[stringParam.length - 1])
-    ? `[${stringParam[stringParam.length - 1]}]`
-    : stringParam[stringParam.length - 1] + count;
-
   return result;
-}
+} 
+
 
 function decompress(stringParam) {
   if (typeof stringParam !== "string") {
