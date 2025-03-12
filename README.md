@@ -8,7 +8,7 @@ A simple JavaScript implementation of the Run-Length Encoding (RLE) algorithm. T
 
 ## Usage
 1. Clone this repository to your local machine.
-2. Creat a `.html` file or use Node.js to run the script.
+2. Create a `.html` file or use Node.js to run the script.
 3. Use the functions `encode()` and `decode()` to test the compression and decompression of strings.
 
 ```js
