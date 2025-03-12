@@ -16,7 +16,7 @@ Feel free to fork this repository and make pull requests with improvements or bu
  
 ## Todo
 
-- [x]~~ Currently, only letters are compressed. Future versions will handle numbers properly.~~
+- [x]~~Currently, only letters are compressed. Future versions will handle numbers properly.~~
 - [ ] Decide whether to compress special characters like `@`, `#`, `$`, `!`, or leave them unchanged.
 - [ ] Add a setting to allow case-sensitive or case-insensitive compression.
 - [ ] Improve efficiency when handling large text inputs.
