@@ -34,30 +34,45 @@ function encode(stringParam) {
 } 
 
 
-function decode(stringParam) {
-  if (typeof stringParam !== "string") {
-    throw new Error("Input must be a string");
-  }
+function decode(encodedString) {
+  if (typeof encodedString !== "string") throw new Error("Input must be a string");
+  if (encodedString.length === 0) return "";
 
-  if (stringParam.length === 0) return "";
+  let result = "";
+  let i = 0;
 
-  const isValidCompressed = (str) => /^([A-Za-z][1-9]\d*)+$/.test(str);
+  while (i < encodedString.length) {
+    let char = encodedString[i];
 
-  const extractPairs = (str) => {
-    if (!isValidCompressed(str)) {
-      throw new Error("Invalid compressed string format");
+    if (char === "[") {
+      // Extract number inside brackets
+      let num = "";
+      i++; // Move past '['
+      while (encodedString[i] !== "]" && i < encodedString.length) {
+        num += encodedString[i];
+        i++;
+      }
+      result += num; // Add raw number to result
+    } else if (/[A-Za-z]/.test(char)) {
+      // Extract the count of the letter
+      let count = "";
+      i++; // Move to the number
+      while (/\d/.test(encodedString[i]) && i < encodedString.length) {
+        count += encodedString[i];
+        i++;
+      }
+      result += char.repeat(Number(count)); // Repeat the letter
+      continue; // Avoid extra increment
     }
 
-    return [...str.matchAll(/([a-zA-Z])(\d+)/g)];
-  };
+    i++;
+  }
 
-  const result = extractPairs(stringParam);
-
-  return result.map((m) => m[1].repeat(Number(m[2]))).join("");
+  return result;
 }
 
-let encodedString = encode("AA111BB2322ghdsGHGHGGGH3C24");
-// let decompressedString = decompress(compressedString);
+let encodedString = encode("AA111BB");
+let decodedString = decode(encodedString);
 
 console.log(encodedString);
-// console.log(decompressedString);
+console.log(decodedString);
