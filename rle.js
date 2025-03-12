@@ -3,7 +3,7 @@ function compress(stringParam) {
     throw new Error("Input must be a string");
   }
 
-  if (stringParam.length === 0) return "";  
+  if (stringParam.length === 0) return "";
 
   let result = "";
   let count = 1;
@@ -21,7 +21,9 @@ function compress(stringParam) {
   }
 
   // Add the last character and its count
-  result += string[string.length - 1] + count;
+  result += /\d/.test(stringParam[stringParam.length - 1])
+    ? `[${stringParam[stringParam.length - 1]}]`
+    : stringParam[stringParam.length - 1] + count;
 
   return result;
 }
