@@ -1,4 +1,4 @@
-function compress(stringParam) {
+function encode(stringParam) {
   if (typeof stringParam !== "string") throw new Error("Input must be a string");
   if (stringParam.length === 0) return "";
 
@@ -34,7 +34,7 @@ function compress(stringParam) {
 } 
 
 
-function decompress(stringParam) {
+function decode(stringParam) {
   if (typeof stringParam !== "string") {
     throw new Error("Input must be a string");
   }
@@ -56,7 +56,7 @@ function decompress(stringParam) {
   return result.map((m) => m[1].repeat(Number(m[2]))).join("");
 }
 
-let compressedString = compress("AA111BB");
+let compressedString = compress("AA111BB2322ghdsGHGHGGGH3C24");
 // let decompressedString = decompress(compressedString);
 
 console.log(compressedString);
