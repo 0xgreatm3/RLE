@@ -1,15 +1,24 @@
 # Run-Length Encoding (RLE) Compression
 
-A simple JavaScript implementation of the Run-Length Encoding (RLE) algorithm. This program compresses and decompresses strings by counting consecutive characters and representing them in a more compact form.
+A simple JavaScript implementation of the Run-Length Encoding (RLE) algorithm. This program encodes and decodes strings by counting consecutive characters and representing them in a more compact form.
 
 ## Features
-- **Compression**: Converts repeated characters into a count and character format (e.g., "AAAABBBCCDAA" → "4A3B2C1D2A").
-- **Decompression**: Reverts compressed strings back to their original form (e.g., "4A3B2C1D2A" → "AAAABBBCCDAA").
+- **Encode**: Converts repeated characters into a count and character format (e.g., "AAAABBBCCDAA" → "A4B2C2D1A2").
+- **Decode**: Reverts compressed strings back to their original form (e.g., "A4B2C2D1A2" → "AAAABBBCCDAA").
 
 ## Usage
 1. Clone this repository to your local machine.
-2. Open the `index.html` or use Node.js to run the script.
-3. Use the functions `compress()` and `decompress()` to test the compression and decompression of strings.
+2. Creat a `.html` file or use Node.js to run the script.
+3. Use the functions `encode()` and `decode()` to test the compression and decompression of strings.
+
+```js
+// RLE.js
+let string = encode("AA111BCC")
+console.log(string) // Output: "A2[111]B1C2"
+
+let decodedString = decode("A2[111]B1C2")
+console.log(decodedString) // Output: "AA111BCC"
+```
 
 ## Contributing
 Feel free to fork this repository and make pull requests with improvements or bug fixes.
